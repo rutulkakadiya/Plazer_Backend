@@ -1,11 +1,11 @@
 const express = require("express");
-const port = 1008;
+const port = 5000;
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
 
-app.use(cors({ origin: "https://www.plazerassociates.com" }));
+app.use(cors({ origin: "http://demo.easywayitsolutions.com" }));
 app.use(express.json()); 
 
 

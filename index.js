@@ -27,6 +27,7 @@ const transporter = nodemailer.createTransport({
 
 
 app.post("/send-email", async (req, res) => {
+  res.json({"Server started"})
   const { name, email, contactNo, countryCode, service, message } = req.body;
 
   try {

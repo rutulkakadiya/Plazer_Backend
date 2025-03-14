@@ -12,6 +12,7 @@ app.use(cors({
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));
+app.use(express.static('public', { extensions: ['js'], mimeType: 'application/javascript' }));
 
 
 app.use(express.json());

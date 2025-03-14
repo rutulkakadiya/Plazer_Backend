@@ -1,11 +1,18 @@
+require("dotenv").config();
 const express = require("express");
-const port = 5000;
+const port = process.env.PORT || 5000;
+;
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
 
-app.use(cors({ origin: "http://demo.easywayitsolutions.com" }));
+app.use(cors({ 
+  origin: ["http://demo.easywayitsolutions.com", "https://demo.easywayitsolutions.com"],
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type"
+}));
+
 app.use(express.json()); 
 
 
@@ -13,8 +20,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "rutulkakadiya973@gmail.com",
-    pass: "mlumipkbcefbxbqm",
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 

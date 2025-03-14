@@ -9,9 +9,10 @@ const app = express();
 
 app.use(cors({ 
   origin: ["http://demo.easywayitsolutions.com", "https://demo.easywayitsolutions.com"],
-  methods: "GET,POST",
-  allowedHeaders: "Content-Type"
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
 }));
+
 
 app.use(express.json()); 
 
@@ -27,7 +28,7 @@ const transporter = nodemailer.createTransport({
 
 
 app.post("/send-email", async (req, res) => {
-  res.json("Server started")
+  
   const { name, email, contactNo, countryCode, service, message } = req.body;
 
   try {

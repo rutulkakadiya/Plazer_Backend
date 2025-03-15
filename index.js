@@ -8,7 +8,8 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: ["https://www.plazerassociates.com", "https://www.plazerassociates.com"],
+  origin: "https://plazerassociates.com",
+
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));
@@ -35,7 +36,6 @@ app.post("/send-email", async (req, res) => {
   const { name, email, contactNo, countryCode, service, message } = req.body;
 
   try {
-    
 
     let mailOptions = {
       from: process.env.EMAIL_USER,  // No-reply email for professional touch

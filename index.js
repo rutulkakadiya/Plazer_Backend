@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: ["http://demo.easywayitsolutions.com", "https://demo.easywayitsolutions.com"],
+  origin: ["https://www.plazerassociates.com", "https://www.plazerassociates.com"],
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));
@@ -33,25 +33,10 @@ app.post("/send-email", async (req, res) => {
   const { name, email, contactNo, countryCode, service, message } = req.body;
 
   try {
-    // let mailOptions = {
-    //   from: "rutulkakadiya973@gmail.com",  // No-reply email set kiya
-    //   to: "rajeshkakadiya973@gmail.com",  // Jo email receive karega
-    //   subject: `${service} Inquiry`,  // Subject updated for insurance website
-    //   html: `
-    //     <p>Hello Team,</p>
-
-    //     <p>You have received a new ${service} inquiry through the Plazer Associate website. Below are the details of the interested individual:</p>
-    //     <hr>
-    //     <p><b>Name:</b> ${name}</p>
-    //     <p><b>Email:</b> ${email}</p>
-    //     <p><b>Contact No:</b> ${countryCode} ${contactNo}</p>
-    //     <p><b>Service Interested In:</b> ${service}</p>
-    //     <p><b>Message:</b> ${message}</p>
-    //   `,
-    // };
+    
 
     let mailOptions = {
-      from: "rutulkakadiya973@gmail.com",  // No-reply email for professional touch
+      from: process.env.EMAIL_USER,  // No-reply email for professional touch
       to: "plazerassociates2015@gmail.com",  // Recipient email
       subject: `${service} Inquiry`,  // Subject updated for insurance website
       html: `
